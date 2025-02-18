@@ -1,33 +1,27 @@
-// pipeline {
-//     agent any 
+pipeline {
+    agent any 
 
-//     tools {
-//         maven "MAVEN"
-//     }
+    tools {
+        maven "MAVEN"
+    }
     
-//     stages {
-//         // stage('Checkout') {
-//         //     steps {
-//         //         git branch: 'main', url: 'https://github.com/BengeeL/devops-lab2-simplemavenapp.git' 
-//         //     }
-//         // }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
 
-//         stage('Build') {
-//             steps {
-//                 sh 'mvn clean package'
-//             }
-//         }
+        stage('Test') {
+          steps {
+            echo 'test'
+          }
+        }
 
-//         stage('Test') {
-//           steps {
-//             echo 'test'
-//           }
-//         }
-
-//         stage('Deploy') {
-//           steps {
-//             echo 'deploy'
-//           }
-//         }
-//     }
-// }
+        stage('Deploy') {
+          steps {
+            echo 'deploy'
+          }
+        }
+    }
+}
