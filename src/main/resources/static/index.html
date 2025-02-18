@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome to COMP367</title>
+    <title>Greeting</title>
 </head>
 <body>
-    <h1>Welcome to COMP367.</h1>
+
+<h1 id="message">Tell me your name</h1>
+<label for="name">Name</label><input type="text" id="name" placeholder="Enter your name">
+<button onclick="greet()">Save my Name</button>
+
+<script>
+    function greet() {
+        const name = document.getElementById("name").value; // Get the name from the input field
+        const now = new Date();
+        const hour = now.getHours();
+        let greeting = "Good morning";
+
+        if (hour >= 12 && hour < 17) {
+            greeting = "Good afternoon";
+        }
+
+        const message = document.getElementById("message");
+        message.innerHTML = `${greeting}, ${name}, Welcome to COMP367`; // Use the name in the greeting
+    }
+
+</script>
+
 </body>
 </html>
