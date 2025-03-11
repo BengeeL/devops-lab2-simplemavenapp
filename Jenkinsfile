@@ -28,12 +28,12 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh '/usr/bin/docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} .'
+                sh '/usr/bin/docker build -t ${DOCKER_IMAGE} .'
             }
         }
         stage('Docker Push') {
             steps {
-                sh '/usr/bin/docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}'
+                sh '/usr/bin/docker push ${DOCKER_IMAGE}'
             }
         }
     }
