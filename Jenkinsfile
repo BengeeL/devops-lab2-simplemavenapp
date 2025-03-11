@@ -4,7 +4,7 @@ pipeline {
         DOCKER_IMAGE = 'bengeel/lab3'
     }
     tools {
-        maven 'M3'
+        maven "MAVEN"
     }
     stages {
         stage('Checkout') {
