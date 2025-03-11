@@ -10,7 +10,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/BengeeL/devops-lab2-simplemavenapp.git'
+                git branch: 'main', url: 'https://github.com/BengeeL/devops-lab2-simplemavenapp.git'
+                sh 'git pull origin main' // Ensure latest code
             }
         }
         stage('Build Maven Project') {
