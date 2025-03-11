@@ -5,6 +5,7 @@ pipeline {
     }
     tools {
         maven "MAVEN"
+        git "GIT"
     }
     stages {
         stage('Checkout') {
