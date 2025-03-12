@@ -6,6 +6,8 @@ pipeline {
     tools {
         maven "MAVEN"
         git "GIT"
+                docker 'DOCKER' // Use the name from your Tool Locations configuration
+
     }
     stages {
         stage('Checkout') {
