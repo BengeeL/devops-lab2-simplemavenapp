@@ -19,6 +19,11 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
+        stage('Check User') {
+            steps {
+                sh 'whoami'
+            }
+        }
         stage('Docker Login') {
             steps {
                 // withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
