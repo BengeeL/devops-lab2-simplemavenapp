@@ -27,7 +27,7 @@ pipeline {
         stage('Docker Login') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    sh 'docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"'
+                    sh '/usr/local/bin/docker login -u "$DOCKER_USER" -p "$DOCKER_PASSWORD"'
                     // sh '/usr/bin/docker build -t ${DOCKER_IMAGE} .'
                     // sh '/usr/bin/docker push ${DOCKER_IMAGE}'
                 }
@@ -38,12 +38,12 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t ${DOCKER_IMAGE} .'
+                sh '/usr/local/bin/docker build -t ${DOCKER_IMAGE} .'
             }
         }
         stage('Docker Push') {
             steps {
-                sh 'docker push ${DOCKER_IMAGE}'
+                sh '/usr/local/bin/docker push ${DOCKER_IMAGE}'
             }
         }
     }
